@@ -8,7 +8,7 @@ import org.junit.Test;
  * <p>
  * Created by fei on 2019/6/13.
  */
-public class RomainToInteger {
+public class IntegerToRoman {
     @Test
     public void test() {
         Assert.assertEquals("I", getRomainStr(1));
