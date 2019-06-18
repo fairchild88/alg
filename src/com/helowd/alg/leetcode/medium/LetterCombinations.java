@@ -19,7 +19,20 @@ public class LetterCombinations {
         Assert.assertEquals(48, letterCombinations("279").size());
         Assert.assertEquals(48*3, letterCombinations("2793").size());
         Assert.assertEquals(0, letterCombinations("").size());
+
+        Assert.assertEquals(48*3, letterCombinations2("2793").size());
     }
+
+    char[][] map = {
+            {'a', 'b', 'c'}, //2
+            {'d', 'e', 'f'}, //3
+            {'g', 'h', 'i'}, //4
+            {'j', 'k', 'l'}, //5
+            {'m', 'n', 'o'}, //6
+            {'p', 'q', 'r', 's'}, //7
+            {'t', 'u', 'v'}, //8
+            {'w', 'x', 'y', 'z'} //9
+    };
 
     public List<String> letterCombinations(String digits) {
         int strCount = 1;
@@ -30,17 +43,6 @@ public class LetterCombinations {
                 strCount *= 4;
             }
         }
-
-        char[][] map = {
-                {'a', 'b', 'c'}, //2
-                {'d', 'e', 'f'}, //3
-                {'g', 'h', 'i'}, //4
-                {'j', 'k', 'l'}, //5
-                {'m', 'n', 'o'}, //6
-                {'p', 'q', 'r', 's'}, //7
-                {'t', 'u', 'v'}, //8
-                {'w', 'x', 'y', 'z'} //9
-        };
 
         List<String> strings = new ArrayList<>();
         for (int i = 0; i < strCount; i++) {
@@ -63,5 +65,23 @@ public class LetterCombinations {
         }
 
         return strings;
+    }
+
+    public List<String> letterCombinations2(String digits) {
+        List<String> res = new ArrayList<>();
+        calStr(res, digits, "", 0);
+        return res;
+    }
+
+    private void calStr(List<String> strs, String full, String part, int index) {
+        if (index == full.length()) {
+            strs.add(part);
+            return;
+        }
+
+        char[] subMap = map[full.charAt(index) - '2'];
+        for (char ch : subMap) {
+            calStr(strs, full, part + ch, index+1);
+        }
     }
 }
