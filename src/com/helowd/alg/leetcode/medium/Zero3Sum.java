@@ -148,7 +148,7 @@ public class Zero3Sum {
         Assert.assertFalse(isEqual(l, r));
     }
 
-    public boolean isEqual(List<List<Integer>> l1, List<List<Integer>> l2) {
+    public static boolean isEqual(List<List<Integer>> l1, List<List<Integer>> l2) {
         if (l1.size() != l2.size()) {
             return false;
         }
