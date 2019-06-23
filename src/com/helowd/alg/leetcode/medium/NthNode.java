@@ -3,8 +3,6 @@ package com.helowd.alg.leetcode.medium;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.List;
-
 /**
  * 描述： Nth Node
  * <p>
